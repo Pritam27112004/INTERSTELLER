@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERSTELLER</title>
+</head>
+<body>
+    <h1>Listing Details</h1>
+    <ul>
+        <li><strong>Title:</strong> <%= listing.title %></li>
+        <li><strong>Description:</strong> <%= listing.description %></li>
+        <li><strong>Price:</strong> ₹<%= listing.price %> / month</li>
+        <li><strong>Location:</strong> <%= listing.location %></li>
+        <li><strong>Country:</strong> <%= listing.country %></li>
+        <li><strong>WiFi Speed:</strong> <%= listing.wifiSpeed %></li>
+        <li><strong>Intern Duration:</strong> <%= listing.internDuration %></li>
+        <li><strong>Distance from Tech Park:</strong> <%= listing.distanceFromTechPark %></li>
+        <li><strong>Study Desk:</strong> <%= listing.studyDesk ? "Yes" : "No" %></li>
+        <li><strong>Power Backup:</strong> <%= listing.powerBackup ? "Yes" : "No" %></li>
+        <li><strong>CCTV:</strong> <%= listing.cctv ? "Yes" : "No" %></li>
+        <li><strong>Biometric Entry:</strong> <%= listing.biometricEntry ? "Yes" : "No" %></li>
+        <li><strong>Gender Type:</strong> <%= listing.genderType %></li>
+        <li><strong>Room Type:</strong> <%= listing.roomType %></li>
+        <li><strong>Meals Included:</strong> <%= listing.mealsIncluded ? "Yes" : "No" %></li>
+        <li><strong>Laundry:</strong> <%= listing.laundry ? "Yes" : "No" %></li>
+        <li><strong>Intern Friendly Rating:</strong> ⭐ <%= listing.internFriendlyRating %></li>
+        <li><strong>Verified:</strong> <%= listing.verifiedByPlatform ? "Verified ✔" : "Not Verified" %></li>
+        <li><strong>Workspace Type:</strong> <%= listing.workspaceType %></li>
+        <li><strong>Metro Distance:</strong> <%= listing.metroDistance %></li>
+        <li><strong>Available From:</strong> <%= listing.availableFrom.toDateString() %></li>
+        <li><strong>Nearby Companies:</strong> <%= listing.nearCompanies.join(", ") %></li>
+        <li><strong>Recommended For:</strong> <%= listing.recommendedFor.join(", ") %></li>
+
+    </ul>
+</body>
+</html>

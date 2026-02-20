@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERSTELLER</title>
+</head>
+<body>
+   <h2>Create New Listing</h2>
+
+<form method="POST" action="/listings">
+
+  <input type="text" name="listingObj[title]" placeholder="Title" required>
+
+  <input type="text" name="listingObj[description]" placeholder="Description" required>
+
+  <input type="number" name="listingObj[price]" placeholder="Price" required>
+
+  <input type="text" name="listingObj[location]" placeholder="Location" required>
+
+  <input type="text" name="listingObj[country]" placeholder="Country" required>
+
+  <input type="text" name="listingObj[image]" placeholder="Image URL">
+
+  <input type="text" name="listingObj[wifiSpeed]" placeholder="WiFi Speed">
+
+  <input type="text" name="listingObj[internDuration]" placeholder="Intern Duration">
+
+  <input type="text" name="listingObj[distanceFromTechPark]" placeholder="Distance from Tech Park">
+
+  <input type="text" name="listingObj[metroDistance]" placeholder="Metro Distance">
+
+  <!-- ENUM FIX -->
+  <label>Workspace Type:</label>
+  <select name="listingObj[workspaceType]">
+      <option value="">Select Workspace Type</option>
+      <option value="Private Study Room">Private Study Room</option>
+      <option value="Common Workspace">Common Workspace</option>
+  </select>
+
+  <!-- Boolean Fields -->
+  <label>
+    <input type="checkbox" name="listingObj[studyDesk]">
+    Study Desk
+  </label>
+
+  <label>
+    <input type="checkbox" name="listingObj[powerBackup]">
+    Power Backup
+  </label>
+
+  <label>
+    <input type="checkbox" name="listingObj[cctv]">
+    CCTV
+  </label>
+
+  <label>
+    <input type="checkbox" name="listingObj[biometricEntry]">
+    Biometric Entry
+  </label>
+
+  <label>
+    <input type="checkbox" name="listingObj[mealsIncluded]">
+    Meals Included
+  </label>
+
+  <label>
+    <input type="checkbox" name="listingObj[laundry]">
+    Laundry
+  </label>
+
+  <!-- Date Field -->
+  <label>Available From:</label>
+  <input type="date" name="listingObj[availableFrom]">
+
+  <button type="submit">Create Listing</button>
+
+</form>
+
+</body>
+</html>

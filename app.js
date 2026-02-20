@@ -67,6 +67,36 @@ app.get("/listings",async(req,res)=>{
   const allListings = await Listing.find({});
   res.render("listings/index.ejs",{allListings});
 })
+app.use(express.urlencoded({extended:true}));
+//create route
+app.get("/listings/new",async(req,res)=>{
+      res.render("listings/new.ejs");
+})
+
+app.post("/listings", async (req, res) => {
+  let listingData = req.body.listingObj;
+
+  // Convert checkboxes (because unchecked = undefined)
+  listingData.studyDesk = listingData.studyDesk === "on";
+  listingData.powerBackup = listingData.powerBackup === "on";
+  listingData.cctv = listingData.cctv === "on";
+  listingData.biometricEntry = listingData.biometricEntry === "on";
+  listingData.mealsIncluded = listingData.mealsIncluded === "on";
+  listingData.laundry = listingData.laundry === "on";
+
+  const newListing = new Listing(listingData);
+  await newListing.save();
+
+  res.redirect("/listings");
+});
+
+//show route
+app.get("/listings/:id",async(req,res)=>{
+    let {id} = req.params;
+    const listing = await Listing.findById(id); //->show.ejs
+    res.render("listings/show.ejs",{listing});
+})
+
 
 
 app.listen(8080,()=>{

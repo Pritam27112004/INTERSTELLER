@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERSTELLER</title>
+</head>
+<body>
+    <h2>Edit Listing</h2>
+
+<form method="POST" action="/listings/<%= listing._id %>?_method=PUT">
+
+  <input type="text" name="listingObj[title]" 
+         value="<%= listing.title %>" required>
+
+  <input type="text" name="listingObj[description]" 
+         value="<%= listing.description %>" required>
+
+  <input type="number" name="listingObj[price]" 
+         value="<%= listing.price %>" required>
+
+  <input type="text" name="listingObj[location]" 
+         value="<%= listing.location %>" required>
+
+  <input type="text" name="listingObj[country]" 
+         value="<%= listing.country %>" required>
+
+  <input type="text" name="listingObj[image]" 
+         value="<%= listing.image %>">
+
+  <input type="text" name="listingObj[wifiSpeed]" 
+         value="<%= listing.wifiSpeed %>">
+
+  <input type="text" name="listingObj[internDuration]" 
+         value="<%= listing.internDuration %>">
+
+  <input type="text" name="listingObj[distanceFromTechPark]" 
+         value="<%= listing.distanceFromTechPark %>">
+
+  <input type="text" name="listingObj[metroDistance]" 
+         value="<%= listing.metroDistance %>">
+
+  <!-- Workspace Type -->
+  <label>Workspace Type:</label>
+  <select name="listingObj[workspaceType]">
+    <option value="Private Study Room"
+      <%= listing.workspaceType === "Private Study Room" ? "selected" : "" %>>
+      Private Study Room
+    </option>
+
+    <option value="Common Workspace"
+      <%= listing.workspaceType === "Common Workspace" ? "selected" : "" %>>
+      Common Workspace
+    </option>
+  </select>
+
+  <!-- Checkboxes -->
+  <label>
+    <input type="checkbox" name="listingObj[studyDesk]" value="true"
+      <%= listing.studyDesk ? "checked" : "" %>>
+    Study Desk
+  </label>
+
+  <label>
+    <input type="checkbox" name="listingObj[powerBackup]" value="true"
+      <%= listing.powerBackup ? "checked" : "" %>>
+    Power Backup
+  </label>
+
+  <label>
+    <input type="checkbox" name="listingObj[cctv]" value="true"
+      <%= listing.cctv ? "checked" : "" %>>
+    CCTV
+  </label>
+
+  <label>
+    <input type="checkbox" name="listingObj[biometricEntry]" value="true"
+      <%= listing.biometricEntry ? "checked" : "" %>>
+    Biometric Entry
+  </label>
+
+  <label>
+    <input type="checkbox" name="listingObj[mealsIncluded]" value="true"
+      <%= listing.mealsIncluded ? "checked" : "" %>>
+    Meals Included
+  </label>
+
+  <label>
+    <input type="checkbox" name="listingObj[laundry]" value="true"
+      <%= listing.laundry ? "checked" : "" %>>
+    Laundry
+  </label>
+
+  <!-- Date -->
+  <label>Available From:</label>
+  <input type="date" name="listingObj[availableFrom]"
+         value="<%= listing.availableFrom ? listing.availableFrom.toISOString().split('T')[0] : '' %>">
+
+  <button type="submit">Update Listing</button>
+
+</form>
+</body>
+</html>

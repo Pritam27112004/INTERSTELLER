@@ -3,8 +3,14 @@ const app = express();
 const mongoose = require("mongoose");
 const Listing = require("./models/listing.js");
 const path = require("path");
+const ejsMate = require("ejs-mate");
 const methodOverride = require("method-override");
 app.use(methodOverride("_method"));
+
+app.engine("ejs",ejsMate);
+app.set("view engine","ejs");
+app.set("views",path.join(__dirname,"views"));
+app.use(express.static(path.join(__dirname,"/public")));
 //root api
 app.get("/",(req,res)=>{
       res.send("hi this is root");
@@ -63,8 +69,6 @@ main().then(()=>{
 //     console.log(res);
 //   })
 // })
-app.set("view engine","ejs");
-app.set("views",path.join(__dirname,"views"));
 
 app.get("/listings",async(req,res)=>{
   const allListings = await Listing.find({});

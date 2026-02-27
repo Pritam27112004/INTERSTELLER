@@ -1,0 +1,17 @@
+/* body{
+    background-color: pink;
+} */
+
+/* Navbar */
+.navbar{
+    
+    height: 5rem;
+    background-color: white;
+}
+.fa-solid{
+    font-size: 2rem;
+}
+.nav-link{
+    color: #222222 !important; 
+    /* important : to override bootstraps custom styling */
+}

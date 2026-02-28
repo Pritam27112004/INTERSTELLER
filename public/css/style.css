@@ -15,3 +15,27 @@
     color: #222222 !important; 
     /* important : to override bootstraps custom styling */
 }
+
+/* Footer */
+.f-info-links a{
+  text-decoration: none;
+  color: #222222;
+}
+.f-info-socials{
+    width: 100%;
+}
+.pvt{
+    width: 100%;
+}
+.f-info-links a:hover{
+  text-decoration: underline;
+}
+.f-info{
+     text-align: center;
+  height: 5rem;
+  background-color: antiquewhite;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: space-between;
+  
+}

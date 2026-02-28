@@ -1,6 +1,6 @@
-/* body{
-    background-color: pink;
-} */
+body{
+  font-family: "Plus Jakarta Sans", sans-serif !important;
+}
 
 /* Navbar */
 .navbar{
@@ -39,3 +39,60 @@
   align-items: space-between;
   
 }
+
+/* card */
+.card{
+    border: none !important;
+    margin-bottom: 2rem;
+
+}
+.card-img-top{
+    border-radius: 1rem;
+    width: 100% !important;
+    object-fit: cover !important;
+}
+.card-body{
+    padding: 0 !important;
+
+}
+.card-text{
+    font-weight: 400 !important;
+}
+
+.card-anchor{
+    text-decoration: none;
+    color: #222222;
+}
+
+/* new listing style */
+.glass-card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+  }
+
+  .form-control, .form-select {
+    border-radius: 12px;
+  }
+
+  .form-control:focus, .form-select:focus {
+    box-shadow: 0 0 0 0.25rem rgba(42,82,152,0.25);
+    border-color: #2a5298;
+  }
+  .submit-btn {
+    background: linear-gradient(135deg, #2a5298, #1e3c72);
+    border: none;
+    border-radius: 12px;
+    transition: 0.3s ease;
+  }
+
+  .submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  }
+
+  .form-check-input:checked {
+    background-color: #2a5298;
+    border-color: #2a5298;
+  }

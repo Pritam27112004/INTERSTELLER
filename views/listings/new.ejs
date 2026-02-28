@@ -1,5 +1,5 @@
 <% layout("/layouts/boilarplate") %>
-<body>
+<!-- <body>
    <h2>Create New Listing</h2>
 
 <form method="POST" action="/listings">
@@ -24,7 +24,7 @@
 
   <input type="text" name="listingObj[metroDistance]" placeholder="Metro Distance">
 
-  <!-- ENUM FIX -->
+
   <label>Workspace Type:</label>
   <select name="listingObj[workspaceType]">
       <option value="">Select Workspace Type</option>
@@ -32,7 +32,7 @@
       <option value="Common Workspace">Common Workspace</option>
   </select>
 
-  <!-- Boolean Fields -->
+
   <label>
     <input type="checkbox" name="listingObj[studyDesk]">
     Study Desk
@@ -63,12 +63,147 @@
     Laundry
   </label>
 
-  <!-- Date Field -->
+
   <label>Available From:</label>
   <input type="date" name="listingObj[availableFrom]">
 
   <button type="submit">Create Listing</button>
 
 </form>
+
+</body> -->
+
+
+<body>
+
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-9 col-xl-8">
+
+      <div class="glass-card p-5">
+
+        <h2 class="text-center fw-bold mb-4 text-dark">
+          🚀 Create New Listing
+        </h2>
+
+        <form method="POST" action="/listings">
+
+          <div class="row g-4">
+
+            <!-- Title -->
+            <div class="col-md-6 form-floating">
+              <input type="text" class="form-control" name="listingObj[title]" placeholder="Title" required>
+              <label>Title</label>
+            </div>
+
+            <!-- Price -->
+            <div class="col-md-6 form-floating">
+              <input type="number" class="form-control" name="listingObj[price]" placeholder="Price" required>
+              <label>Price (₹)</label>
+            </div>
+
+            <!-- Description -->
+            <div class="col-12 form-floating">
+              <input type="text" class="form-control" name="listingObj[description]" placeholder="Description" required>
+              <label>Description</label>
+            </div>
+
+            <!-- Location -->
+            <div class="col-md-6 form-floating">
+              <input type="text" class="form-control" name="listingObj[location]" placeholder="Location" required>
+              <label>Location</label>
+            </div>
+
+            <!-- Country -->
+            <div class="col-md-6 form-floating">
+              <input type="text" class="form-control" name="listingObj[country]" placeholder="Country" required>
+              <label>Country</label>
+            </div>
+
+            <!-- Image -->
+            <div class="col-12 form-floating">
+              <input type="text" class="form-control" name="listingObj[image]" placeholder="Image URL">
+              <label>Image URL</label>
+            </div>
+
+            <!-- WiFi -->
+            <div class="col-md-6 form-floating">
+              <input type="text" class="form-control" name="listingObj[wifiSpeed]" placeholder="WiFi Speed">
+              <label>WiFi Speed</label>
+            </div>
+
+            <!-- Intern Duration -->
+            <div class="col-md-6 form-floating">
+              <input type="text" class="form-control" name="listingObj[internDuration]" placeholder="Intern Duration">
+              <label>Intern Duration</label>
+            </div>
+
+            <!-- Workspace -->
+            <div class="col-md-6">
+              <label class="form-label fw-semibold">Workspace Type</label>
+              <select class="form-select" name="listingObj[workspaceType]">
+                <option value="">Select Workspace Type</option>
+                <option value="Private Study Room">Private Study Room</option>
+                <option value="Common Workspace">Common Workspace</option>
+              </select>
+            </div>
+
+            <!-- Available Date -->
+            <div class="col-md-6 form-floating">
+              <input type="date" class="form-control" name="listingObj[availableFrom]">
+              <label>Available From</label>
+            </div>
+
+            <!-- Amenities -->
+            <div class="col-12">
+              <h6 class="fw-bold mb-3 text-dark">✨ Amenities</h6>
+
+              <div class="row">
+                <div class="col-md-4 form-check mb-2">
+                  <input class="form-check-input" type="checkbox" name="listingObj[studyDesk]">
+                  <label class="form-check-label">Study Desk</label>
+                </div>
+
+                <div class="col-md-4 form-check mb-2">
+                  <input class="form-check-input" type="checkbox" name="listingObj[powerBackup]">
+                  <label class="form-check-label">Power Backup</label>
+                </div>
+
+                <div class="col-md-4 form-check mb-2">
+                  <input class="form-check-input" type="checkbox" name="listingObj[cctv]">
+                  <label class="form-check-label">CCTV</label>
+                </div>
+
+                <div class="col-md-4 form-check mb-2">
+                  <input class="form-check-input" type="checkbox" name="listingObj[biometricEntry]">
+                  <label class="form-check-label">Biometric Entry</label>
+                </div>
+
+                <div class="col-md-4 form-check mb-2">
+                  <input class="form-check-input" type="checkbox" name="listingObj[mealsIncluded]">
+                  <label class="form-check-label">Meals Included</label>
+                </div>
+
+                <div class="col-md-4 form-check mb-2">
+                  <input class="form-check-input" type="checkbox" name="listingObj[laundry]">
+                  <label class="form-check-label">Laundry</label>
+                </div>
+              </div>
+            </div>
+
+            <!-- Submit -->
+            <div class="col-12 mt-4">
+              <button type="submit" class="btn submit-btn text-white w-100 py-3 fw-semibold">
+                Create Listing
+              </button>
+            </div>
+
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>
 
 </body>

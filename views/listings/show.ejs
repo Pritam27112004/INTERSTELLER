@@ -1,5 +1,5 @@
 <% layout("/layouts/boilarplate") %>
-<body>
+<!-- <body>
     <h1>Listing Details</h1>
     <ul>
         <li><strong>Title:</strong> <%= listing.title %></li>
@@ -31,4 +31,162 @@
    <form method="POST" action="/listings/<%=listing._id%>?_method=DELETE">
     <button>Delete Listing</button>
    </form>
+</body> -->
+
+<body>
+    <div class="row justify-content-center">
+  <div class="col-lg-10">
+
+    <!-- Hero Image -->
+    <div class="card shadow-lg border-0 rounded-4 overflow-hidden mb-4">
+      <img src="<%= listing.image %>" 
+           class="img-fluid w-100"
+           style="height: 400px; object-fit: cover;">
+    </div>
+
+    <!-- Main Details Card -->
+    <div class="card shadow-lg border-0 rounded-4 p-4 mb-4">
+
+      <div class="d-flex justify-content-between align-items-start flex-wrap">
+        <div>
+          <h2 class="fw-bold mb-1"><%= listing.title %></h2>
+          <p class="text-muted mb-2">
+            <i class="fa-solid fa-location-dot"></i>
+            <%= listing.location %>, <%= listing.country %>
+          </p>
+        </div>
+
+        <div class="text-end">
+          <h3 class="fw-bold text-success">
+            ₹<%= listing.price.toLocaleString("en-IN") %>
+            <small class="text-muted fs-6">/ month</small>
+          </h3>
+          <div>
+            <span class="badge bg-warning text-dark">
+              ⭐ <%= listing.internFriendlyRating %>
+            </span>
+
+            <% if (listing.verifiedByPlatform) { %>
+              <span class="badge bg-success">Verified ✔</span>
+            <% } else { %>
+              <span class="badge bg-secondary">Not Verified</span>
+            <% } %>
+          </div>
+        </div>
+      </div>
+
+      <hr>
+
+      <!-- Description -->
+      <h5 class="fw-semibold mt-3">Description</h5>
+      <p class="text-muted"><%= listing.description %></p>
+
+      <hr>
+
+      <!-- Key Info -->
+      <div class="row g-3">
+
+        <div class="col-md-4">
+          <strong>WiFi:</strong> <%= listing.wifiSpeed || "N/A" %>
+        </div>
+
+        <div class="col-md-4">
+          <strong>Intern Duration:</strong> <%= listing.internDuration || "N/A" %>
+        </div>
+
+        <div class="col-md-4">
+          <strong>Workspace:</strong> <%= listing.workspaceType || "N/A" %>
+        </div>
+
+        <div class="col-md-4">
+          <strong>Tech Park Distance:</strong> <%= listing.distanceFromTechPark || "N/A" %>
+        </div>
+
+        <div class="col-md-4">
+          <strong>Metro Distance:</strong> <%= listing.metroDistance || "N/A" %>
+        </div>
+
+        <div class="col-md-4">
+          <strong>Available From:</strong>
+          <%= listing.availableFrom ? listing.availableFrom.toDateString() : "N/A" %>
+        </div>
+
+        <div class="col-md-4">
+          <strong>Gender:</strong> <%= listing.genderType %>
+        </div>
+
+        <div class="col-md-4">
+          <strong>Room Type:</strong> <%= listing.roomType %>
+        </div>
+
+      </div>
+
+      <hr>
+
+      <!-- Amenities -->
+      <h5 class="fw-semibold mb-3">Amenities</h5>
+
+      <div class="d-flex flex-wrap gap-2">
+
+        <% if (listing.studyDesk) { %>
+          <span class="badge bg-primary">Study Desk</span>
+        <% } %>
+
+        <% if (listing.powerBackup) { %>
+          <span class="badge bg-primary">Power Backup</span>
+        <% } %>
+
+        <% if (listing.cctv) { %>
+          <span class="badge bg-primary">CCTV</span>
+        <% } %>
+
+        <% if (listing.biometricEntry) { %>
+          <span class="badge bg-primary">Biometric Entry</span>
+        <% } %>
+
+        <% if (listing.mealsIncluded) { %>
+          <span class="badge bg-primary">Meals Included</span>
+        <% } %>
+
+        <% if (listing.laundry) { %>
+          <span class="badge bg-primary">Laundry</span>
+        <% } %>
+
+      </div>
+
+      <hr>
+
+      <!-- Nearby Companies -->
+      <% if (listing.nearCompanies && listing.nearCompanies.length) { %>
+        <h5 class="fw-semibold">Nearby Companies</h5>
+        <p><%= listing.nearCompanies.join(", ") %></p>
+      <% } %>
+
+      <!-- Recommended For -->
+      <% if (listing.recommendedFor && listing.recommendedFor.length) { %>
+        <h5 class="fw-semibold">Recommended For</h5>
+        <p><%= listing.recommendedFor.join(", ") %></p>
+      <% } %>
+
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="d-flex justify-content-between mb-5">
+
+      <a href="/listings/<%= listing._id %>/edit"
+         class="btn btn-outline-warning px-4">
+         ✏️ Edit
+      </a>
+
+      <form method="POST"
+            action="/listings/<%= listing._id %>?_method=DELETE">
+        <button class="btn btn-outline-danger px-4">
+          🗑 Delete
+        </button>
+      </form>
+
+    </div>
+
+  </div>
+</div>
 </body>
